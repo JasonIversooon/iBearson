@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="app-shell app-shell--topnav">
+    <aside class="sidebar" aria-label="Contact Information">
+      <div class="profile-card">
+        <div class="avatar" aria-hidden="true"></div>
+        <h1 class="name">Your Name</h1>
+        <p class="role">Web Developer</p>
+      </div>
+      <div class="contact-blocks" aria-label="Contact Methods">
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">✉️</div>
+          <div class="detail"><span class="label">Email</span><a href="mailto:you@example.com">you@example.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">📱</div>
+          <div class="detail"><span class="label">Phone</span><a href="tel:+10000000000">+1 (000) 000-0000</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">📍</div>
+          <div class="detail"><span class="label">Location</span><span>Your City, Country</span></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content with-top-nav" tabindex="-1">
+      <div class="panel-bar" role="presentation">
+        <div class="panel-bar__heading">
+          <h2 id="active-panel-heading" class="panel-title">About Me</h2>
+          <div class="accent-bar"></div>
+        </div>
+        <nav class="primary-nav primary-nav--horizontal inline" aria-label="Main">
+          <ul role="tablist">
+            <li><button role="tab" aria-selected="true" aria-controls="panel-about" id="tab-about" data-tab="about">About</button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects" data-tab="projects">Projects</button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="panel-certificates" id="tab-certificates" data-tab="certificates">Certificates</button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact" data-tab="contact">Contact</button></li>
+          </ul>
+        </nav>
+  </div>
+  <div class="panel-anim" data-panel-container>
+  <section id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-panel="about">
+        <h2 class="sr-only">About Me</h2>
+        <p class="lead">Short introduction about who you are, what you love building, and the value you bring.</p>
+        <div class="grid what-i-do">
+          <!-- filled later -->
+        </div>
+      </section>
+
+      <section id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" data-panel="projects" hidden>
+        <h2 class="sr-only">Projects</h2>
+        <div class="projects-grid"></div>
+      </section>
+
+      <section id="panel-certificates" role="tabpanel" aria-labelledby="tab-certificates" data-panel="certificates" hidden>
+        <h2 class="sr-only">Certificates</h2>
+        <ul class="cert-list"></ul>
+      </section>
+
+      <section id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" data-panel="contact" hidden>
+        <h2 class="sr-only">Contact</h2>
+        <form class="contact-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+  </section>
+  </div>
+    </main>
+  </div>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
