@@ -82,7 +82,7 @@ function populateServices() {
   ];
   const wrap = document.querySelector('.what-i-do');
   if (!wrap) return;
-  wrap.innerHTML = services.map(s => `\n    <div class="service-card">\n      <h3>${s.title}</h3>\n      <p>${s.body}</p>\n    </div>`).join('');
+  wrap.innerHTML = services.map(s => `\n    <div class="service-card fade-in" tabindex="0">\n      <h3>${s.title}</h3>\n      <p>${s.body}</p>\n    </div>`).join('');
 }
 
 function populateProjects() {
@@ -94,7 +94,7 @@ function populateProjects() {
   ];
   const grid = document.querySelector('.projects-grid');
   if (!grid) return;
-  grid.innerHTML = projects.map(p => `\n    <div class="project-card">\n      <h3>${p.title}</h3>\n      <p>${p.desc}</p>\n      <div class="project-links">\n        <a href="${p.links.code}" aria-label="Source code for ${p.title}">Code</a>\n        <a href="${p.links.live}" aria-label="Live site for ${p.title}">Live</a>\n      </div>\n    </div>`).join('');
+  grid.innerHTML = projects.map(p => `\n    <div class="project-card fade-in" tabindex="0">\n      <h3>${p.title}</h3>\n      <p>${p.desc}</p>\n      <div class="project-links">\n        <a href="${p.links.code}" aria-label="Source code for ${p.title}">Code</a>\n        <a href="${p.links.live}" aria-label="Live site for ${p.title}">Live</a>\n      </div>\n    </div>`).join('');
 }
 
 function populateCertificates() {
@@ -106,7 +106,7 @@ function populateCertificates() {
   ];
   const list = document.querySelector('.cert-list');
   if (!list) return;
-  list.innerHTML = certs.map(c => `\n    <li class="cert-item">\n      <h3>${c.name}</h3>\n      <span>${c.org} • ${c.year}</span>\n    </li>`).join('');
+  list.innerHTML = certs.map(c => `\n    <li class="cert-item fade-in" tabindex="0">\n      <h3>${c.name}</h3>\n      <span>${c.org} • ${c.year}</span>\n    </li>`).join('');
 }
 
 function handleContactForm() {
@@ -119,9 +119,13 @@ function handleContactForm() {
     const name = data.get('name');
     const email = data.get('email');
     const message = data.get('message');
-
-    if (!name || !email || !message) {
-      status.textContent = 'Please fill in all fields.';
+    const errors = [];
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!name) errors.push('Name required');
+    if (!email) errors.push('Email required'); else if (!emailValid) errors.push('Email invalid');
+    if (!message) errors.push('Message required');
+    if (errors.length) {
+      status.textContent = errors.join(' • ');
       status.style.color = 'var(--color-accent)';
       return;
     }
@@ -133,6 +137,26 @@ function handleContactForm() {
       form.reset();
     }, 900);
   });
+}
+
+function setYear() {
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+function initFadeIns() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return; // respect reduced motion
+  const els = document.querySelectorAll('.fade-in');
+  const obs = new IntersectionObserver((entries, o) => {
+    entries.forEach(ent => {
+      if (ent.isIntersecting) {
+        ent.target.classList.add('fade-in--visible');
+        o.unobserve(ent.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => obs.observe(el));
 }
 
 function initFromHash() {
@@ -156,7 +180,9 @@ function init() {
   populateProjects();
   populateCertificates();
   handleContactForm();
+  setYear();
   initTabs();
+  initFadeIns();
   // Set initial container explicit height to match first panel then release
   const container = document.querySelector('[data-panel-container]');
   const firstPanel = container ? container.querySelector('[role="tabpanel"]:not([hidden])') : null;

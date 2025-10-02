@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens as CSS vars for runtime usage if needed */
+:root {
+  --color-accent-glow: 255 200 81;
+}
+
+@layer base {
+  html, body { height:100%; }
+  body { @apply bg-gradient-to-br from-[#ffdd74] via-[#ffb347] to-[#ff9f4d] text-text font-sans antialiased leading-relaxed m-0; }
+}
+
+@layer components {
+  .app-shell { @apply max-w-[1180px] mx-auto my-10 bg-bg min-h-[640px] overflow-hidden rounded-lg backdrop-blur-lg; display:grid; grid-template-columns:300px 1fr; box-shadow:0 20px 60px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05); }
+  .sidebar { @apply flex flex-col gap-10 border-r border-border bg-gradient-to-b from-bg-alt to-bg px-7 pt-8 pb-10; }
+  .profile-card .avatar { @apply mb-4 h-[120px] w-[120px] rounded-[20px] bg-surface-alt shadow-elev relative overflow-hidden; }
+  .name { @apply m-0 mb-1 text-[1.5rem] font-semibold; }
+  .role { @apply m-0 mb-4 text-text-soft font-medium; }
+
+  .primary-nav ul { @apply list-none m-0 p-0 flex flex-col gap-1; }
+  .primary-nav button { @apply w-full text-left bg-transparent text-text-soft font-medium text-[0.95rem] px-3 py-2.5 rounded-md cursor-pointer relative transition; }
+  .primary-nav button[aria-selected="true"] { @apply bg-surface-alt text-text; box-shadow:0 0 0 1px theme('colors.border'),0 4px 10px -4px rgba(0,0,0,.6); }
+  .primary-nav--horizontal ul { @apply flex-row gap-1.5 bg-surface p-1.5 rounded-lg border border-border shadow-elev; }
+  .primary-nav--horizontal button { @apply w-auto text-center text-[0.9rem] px-4 py-2.5; }
+  .primary-nav--horizontal button[aria-selected="true"] { @apply bg-[rgba(var(--color-accent-glow)/0.10)] text-accent shadow-inner; box-shadow:0 0 0 1px rgba(var(--color-accent-glow)/.35) inset; }
+
+  .panel-bar { @apply max-w-[920px] mx-auto mb-8 flex items-center justify-between gap-7; }
+  .panel-bar__heading { @apply flex items-center gap-5; }
+  .panel-title { @apply text-[2.05rem] leading-tight tracking-[0.5px] m-0 font-semibold; }
+  .sr-only { @apply absolute w-px h-px p-0 m-[-1px] overflow-hidden clip-rect; clip: rect(0 0 0 0); border:0; }
+
+  .contact-blocks { @apply flex flex-col gap-3.5; }
+  .contact-item { @apply flex gap-3.5 items-start bg-surface border border-border px-4 pt-3.5 pb-4 rounded-md relative; }
+  .contact-item .icon { @apply w-[34px] h-[34px] grid place-items-center bg-surface-alt border border-border rounded-[10px] text-base; }
+  .contact-item .detail { @apply flex flex-col gap-1 text-[0.8rem]; }
+  .contact-item .label { @apply text-[0.62rem] uppercase tracking-[0.8px] text-text-soft font-semibold; }
+  .contact-item a { @apply text-text no-underline font-medium transition; }
+  .contact-item a:hover { @apply text-accent; }
+
+  .content { @apply bg-[repeating-linear-gradient(45deg,#0f0f10_0_12px,#101014_12px_24px)] px-14 pt-12 pb-14; }
+  .panel-anim { @apply relative transition-[height] duration-[340ms] ease-fast; }
+  .panel-anim > [role="tabpanel"] { @apply opacity-100 translate-y-0 transition-opacity duration-200 ease-linear; }
+  .panel-anim > [role="tabpanel"][hidden] { @apply block absolute inset-0 opacity-0 translate-y-2 pointer-events-none; }
+  .content section { @apply max-w-[920px] mx-auto mb-10 bg-surface p-11 pb-12 rounded-lg shadow-elev border border-border; }
+  .accent-bar { @apply w-16 h-1 rounded bg-accent shadow-[0_0_0_1px_rgba(var(--color-accent-glow)/.5),0_0_18px_-2px_rgba(var(--color-accent-glow)/.9)]; }
+  .lead { @apply text-base text-text-soft mt-0; }
+
+  .grid.what-i-do { @apply gap-5 mt-8; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  .service-card { @apply bg-surface-alt p-5 pt-5 pb-6 rounded-md border border-border relative overflow-hidden flex flex-col gap-2.5 transition; }
+  .service-card h3 { @apply m-0 text-base font-semibold; }
+  .service-card p { @apply m-0 text-[0.82rem] text-text-soft leading-snug; }
+  .service-card::after { content:""; @apply absolute inset-0 opacity-0 transition; background:linear-gradient(120deg,rgba(var(--color-accent-glow)/0)_0%,rgba(var(--color-accent-glow)/.06)_60%,rgba(var(--color-accent-glow)/0)_100%); }
+  .service-card:hover::after { @apply opacity-100; }
+
+  .projects-grid { @apply gap-6; display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); }
+  .project-card { @apply bg-surface-alt border border-border p-[22px] rounded-md flex flex-col gap-3.5 relative; }
+  .project-card h3 { @apply m-0 text-[1.05rem] font-semibold; }
+  .project-card p { @apply m-0 text-[0.8rem] text-text-soft leading-snug; }
+  .project-links { @apply mt-auto flex gap-3; }
+  .project-links a { @apply text-[0.72rem] no-underline bg-surface text-text-soft px-2.5 py-1.5 rounded-sm border border-border transition; }
+  .project-links a:hover { @apply text-text bg-accent border-accent; }
+
+  .cert-list { @apply list-none p-0 m-0 grid gap-3.5; }
+  .cert-item { @apply bg-surface-alt border border-border px-[18px] pt-4 pb-[18px] rounded-md flex flex-col gap-1; }
+  .cert-item h3 { @apply m-0 text-[0.95rem] font-semibold; }
+  .cert-item span { @apply text-[0.7rem] tracking-[0.5px] uppercase text-text-soft; }
+
+  .contact-form { @apply grid gap-5 max-w-[520px]; }
+  .field { @apply flex flex-col gap-1.5; }
+  .field label { @apply text-[0.8rem] font-semibold tracking-[0.5px] uppercase text-text-soft; }
+  .field input, .field textarea { @apply bg-surface-alt border border-border rounded-sm px-3.5 py-3 font-medium text-[0.9rem] text-text resize-y focus:outline-none focus:ring-2 focus:ring-accent; }
+  .btn-primary { @apply bg-accent text-[#222] font-semibold text-[0.85rem] px-5 py-3 rounded-sm cursor-pointer tracking-[0.5px] shadow-[0_2px_6px_-2px_rgba(0,0,0,.6)] transition; }
+  .btn-primary:hover { @apply brightness-105; }
+  .form-status { @apply text-[0.75rem] min-h-[1em] text-text-soft; }
+
+  .primary-nav button:focus-visible { @apply outline outline-2 outline-accent outline-offset-2; }
+}
+
+@layer utilities {
+  .clip-rect { clip: rect(0 0 0 0); }
+}
+
+@media (max-width:980px) {
+  .app-shell { grid-template-columns:260px 1fr; }
+  .content { @apply px-10 pt-10 pb-14; }
+  .content section { @apply p-10 pb-11; }
+}
+@media (max-width:780px) {
+  .app-shell { grid-template-columns:1fr; }
+  .sidebar { @apply flex-row overflow-x-auto gap-6 px-6 pt-6 pb-7 items-start; }
+  .profile-card { min-width:200px; }
+  .contact-blocks { @apply flex-row; }
+  .contact-item { min-width:200px; }
+  .content { @apply px-7 pt-8 pb-11; }
+}
+@media (max-width:520px) {
+  .content section { @apply px-6 pt-[30px] pb-[38px]; }
+  .app-shell { @apply my-5; }
+}
