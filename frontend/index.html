@@ -88,12 +88,12 @@
 
         <section id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" data-panel="projects" hidden>
           <h2 class="sr-only">Projects</h2>
-          <div class="projects-grid max-w-[880px] mx-auto"></div>
+          <ul class="cert-list max-w-[880px] mx-auto" data-swapped="projects"></ul>
         </section>
 
         <section id="panel-certificates" role="tabpanel" aria-labelledby="tab-certificates" data-panel="certificates" hidden>
           <h2 class="sr-only">Certificates</h2>
-          <ul class="cert-list max-w-[880px] mx-auto"></ul>
+          <div class="projects-grid max-w-[880px] mx-auto" data-swapped="certificates"></div>
         </section>
 
         <section id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" data-panel="contact" hidden>
@@ -118,8 +118,6 @@
       </div>
     </main>
   </div>
-  <footer class="text-center mt-10 mb-6 text-[0.7rem] tracking-wide text-text-soft">
-    <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
   </footer>
   <script src="assets/app.js" defer></script>
 </body>
