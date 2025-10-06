@@ -69,3 +69,14 @@
 	outline: 2px solid rgba(245,200,81,0.15);
 }
 
+/* Uniform panel sizing - CERTIFICATES (file-scoped variables) */
+:root {
+	--cert-panel-max-width: 880px;
+	--cert-panel-min-height: 560px;
+	--cert-card-min-height: 110px;
+}
+
+#panel-certificates .projects-grid, #panel-certificates .cert-list { max-width: var(--cert-panel-max-width); margin: 0 auto; }
+#panel-certificates { min-height: var(--cert-panel-min-height); }
+#panel-certificates .cert-item, #panel-certificates .project-card { min-height: var(--cert-card-min-height); }
+

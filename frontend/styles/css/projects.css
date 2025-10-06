@@ -44,3 +44,14 @@
 #panel-projects .cert-list .cert-links a { display:inline-flex; align-items:center; gap:.25rem; font-size:.72rem; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:.375rem .625rem; border-radius:4px; text-decoration:none; transition:.15s; }
 #panel-projects .cert-list .cert-links a:hover { border-color:rgb(245 200 81 / 1); background:rgb(245 200 81 / 1); color:#e8e8ea; }
 
+/* Uniform panel sizing - PROJECTS (file-scoped variables) */
+:root {
+  --proj-panel-max-width: 880px;
+  --proj-panel-min-height: 560px;
+  --proj-card-min-height: 110px;
+}
+
+#panel-projects .projects-grid, #panel-projects .cert-list { max-width: var(--proj-panel-max-width); margin: 0 auto; }
+#panel-projects { min-height: var(--proj-panel-min-height); }
+#panel-projects .project-card, #panel-projects .cert-item { min-height: var(--proj-card-min-height); }
+

@@ -15,3 +15,31 @@
 #panel-about .service-card:hover::after { opacity:1; }
 #panel-about .service-card:hover { outline:1px solid rgba(var(--color-accent-glow)/.25); }
 
+/* Make the about panel content match other panels' fixed size */
+#panel-about { /* panels are inside .content section which already sets height:560px on the section; ensure inner layout fits */
+	display: block;
+}
+
+/* Ensure the content area uses the same max width and scroll behavior as other panels */
+#panel-about .what-i-do { max-width:800px; margin:1.75rem auto 0; display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+
+/* Give service cards a consistent minimum height like cert/project cards */
+#panel-about .service-card { min-height:110px; }
+
+/* Force service cards to stretch so rows align visually */
+#panel-about .what-i-do .service-card { align-self:stretch; display:flex; flex-direction:column; }
+
+/* Prevent the About panel from collapsing when there's little content */
+#panel-about { min-height:560px; }
+
+/* Uniform panel sizing - ABOUT (duplicate, file-scoped variables so each CSS can be edited independently) */
+:root {
+	--about-panel-max-width: 600px;
+	--about-panel-min-height: 560px;
+	--about-card-min-height: 110px;
+}
+
+#panel-about .what-i-do { max-width: var(--about-panel-max-width); margin: 1.75rem auto 0; }
+#panel-about { min-height: var(--about-panel-min-height); }
+#panel-about .service-card { min-height: var(--about-card-min-height); align-self: stretch; }
+
