@@ -1,0 +1,18 @@
+/* Contact Section Styles
+	---------------------------------------------- */
+
+/* Form layout */
+#panel-contact .contact-form { display:grid; max-width:520px; gap:1.25rem; animation:fadeInForm .4s ease; }
+#panel-contact .contact-form .field { display:flex; flex-direction:column; gap:.375rem; }
+#panel-contact .contact-form label { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.5px; color:rgb(181 181 187 / 1); }
+#panel-contact .contact-form input, #panel-contact .contact-form textarea { font-size:.9rem; font-weight:500; padding:.75rem .875rem; border:1px solid #2f3033; background:#27282b; color:#e8e8ea; border-radius:4px; resize:vertical; }
+#panel-contact .contact-form input:focus, #panel-contact .contact-form textarea:focus { outline:2px solid transparent; outline-offset:2px; --tw-ring-color:rgb(245 200 81 / 1); box-shadow:0 0 0 2px #f5c851; }
+
+/* Submit button */
+#panel-contact .contact-form .btn-primary { cursor:pointer; background:rgb(245 200 81 / 1); color:#222; font-size:.85rem; font-weight:600; letter-spacing:.5px; padding:.75rem 1.25rem; border-radius:4px; box-shadow:0 2px 6px -2px rgba(0,0,0,.6); transition:.15s; }
+#panel-contact .contact-form .btn-primary:hover { filter:brightness(1.05); }
+
+/* Status */
+#panel-contact .contact-form .form-status { min-height:1em; font-size:.75rem; color:rgb(181 181 187 / 1); }
+
+@keyframes fadeInForm { from { opacity:0; transform:translateY(4px);} to { opacity:1; transform:translateY(0);} }

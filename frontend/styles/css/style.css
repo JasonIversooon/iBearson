@@ -624,13 +624,6 @@ body {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.\!name {
-  margin: 0px;
-  margin-bottom: 0.25rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
 .name {
   margin: 0px;
   margin-bottom: 0.25rem;
@@ -948,74 +941,11 @@ body {
   color: rgb(181 181 187 / var(--tw-text-opacity, 1));
 }
 
-.\!grid.what-i-do {
-  margin-top: 2rem;
-  gap: 1.25rem;
-}
-
 .grid.what-i-do {
   margin-top: 2rem;
   gap: 1.25rem;
-}
-
-.\!grid.what-i-do {
-  display:grid !important;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr)) !important;
-}
-
-.grid.what-i-do {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-}
-
-.service-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-  overflow: hidden;
-  border-radius: 8px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(47 48 51 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(39 40 43 / var(--tw-bg-opacity, 1));
-  padding: 1.25rem;
-  padding-top: 1.25rem;
-  padding-bottom: 1.5rem;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.service-card h3 {
-  margin: 0px;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  font-weight: 600;
-}
-
-.service-card p {
-  margin: 0px;
-  font-size: 0.82rem;
-  line-height: 1.375;
-  --tw-text-opacity: 1;
-  color: rgb(181 181 187 / var(--tw-text-opacity, 1));
-}
-
-.service-card::after {
-  content:"";
-  position: absolute;
-  inset: 0px;
-  opacity: 0;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-  background:linear-gradient(120deg,rgba(var(--color-accent-glow)/0)_0%,rgba(var(--color-accent-glow)/.06)_60%,rgba(var(--color-accent-glow)/0)_100%);
-}
-
-.service-card:hover::after {
-  opacity: 1;
 }
 
 /* Exactly 2 columns (wraps to 1 on small screens via media query) */
@@ -1026,108 +956,7 @@ body {
   grid-template-columns:repeat(2,minmax(0,1fr));
 }
 
-.project-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
-  border-radius: 8px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(47 48 51 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(39 40 43 / var(--tw-bg-opacity, 1));
-  padding: 22px;
-}
-
-.project-card h3 {
-  margin: 0px;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.project-card p {
-  margin: 0px;
-  font-size: 0.8rem;
-  line-height: 1.375;
-  --tw-text-opacity: 1;
-  color: rgb(181 181 187 / var(--tw-text-opacity, 1));
-}
-
-.project-links {
-  margin-top: auto;
-  display: flex;
-  gap: 0.75rem;
-}
-
-.project-links a, .cert-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  border-radius: 4px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(47 48 51 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 32 34 / var(--tw-bg-opacity, 1));
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
-  font-size: 0.72rem;
-  --tw-text-opacity: 1;
-  color: rgb(181 181 187 / var(--tw-text-opacity, 1));
-  text-decoration-line: none;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.project-links a:hover, .cert-links a:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(245 200 81 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 200 81 / var(--tw-bg-opacity, 1));
-  --tw-text-opacity: 1;
-  color: rgb(232 232 234 / var(--tw-text-opacity, 1));
-}
-
 /* Icon variant */
-
-.icon-btn {
-  display: flex;
-  height: 2rem;
-  width: 2rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(47 48 51 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 32 34 / var(--tw-bg-opacity, 1));
-  padding: 0px;
-  --tw-text-opacity: 1;
-  color: rgb(181 181 187 / var(--tw-text-opacity, 1));
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.icon-btn svg {
-  width:16px;
-  height:16px;
-  display:block;
-}
-
-.icon-btn:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(245 200 81 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 200 81 / var(--tw-bg-opacity, 1));
-  --tw-text-opacity: 1;
-  color: rgb(232 232 234 / var(--tw-text-opacity, 1));
-}
 
 .cert-list.what-i-do {
   margin-top: 2rem;
@@ -1142,58 +971,6 @@ body {
   list-style-type: none;
   gap: 0.875rem;
   padding: 0px;
-}
-
-.cert-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  border-radius: 8px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(47 48 51 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(39 40 43 / var(--tw-bg-opacity, 1));
-  padding-left: 18px;
-  padding-right: 18px;
-  padding-top: 1rem;
-  padding-bottom: 18px;
-  min-height:110px;
-}
-
-.cert-item h3 {
-  margin: 0px;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.cert-item span {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  --tw-text-opacity: 1;
-  color: rgb(181 181 187 / var(--tw-text-opacity, 1));
-}
-
-.cert-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-
-.cert-head {
-  display: flex;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.cert-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
 }
 
 .contact-form.what-i-do {
@@ -1305,10 +1082,6 @@ body {
   border-width: 0;
 }
 
-.static {
-  position: static;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1316,10 +1089,6 @@ body {
 
 .inline {
   display: inline;
-}
-
-.\!grid {
-  display: grid !important;
 }
 
 .grid {

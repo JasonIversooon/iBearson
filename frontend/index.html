@@ -35,7 +35,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="Styles/css/style.css" />
+  <!-- Section specific CSS -->
+  <link rel="stylesheet" href="Styles/css/about.css" />
+  <link rel="stylesheet" href="Styles/css/projects.css" />
+  <link rel="stylesheet" href="Styles/css/certificates.css" />
+  <link rel="stylesheet" href="Styles/css/contact.css" />
 </head>
 <body>
   <a href="#panel-about" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-accent text-[#222] px-4 py-2 rounded-sm">Skip to content</a>
@@ -78,24 +83,24 @@
         </nav>
       </div>
       <div class="panel-anim" data-panel-container>
+        <!-- Core sections (in a real build system these could be included dynamically) -->
+        <!-- About -->
         <section id="panel-about" role="tabpanel" aria-labelledby="tab-about" data-panel="about">
           <h2 class="sr-only">About Me</h2>
           <p class="lead">Short introduction about who you are, what you love building, and the value you bring.</p>
-          <div class="grid what-i-do max-w-[880px] mx-auto">
-            <!-- filled later -->
-          </div>
+          <div class="grid what-i-do max-w-[880px] mx-auto"><!-- populated by about.js --></div>
         </section>
-
+        <!-- Projects -->
         <section id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" data-panel="projects" hidden>
           <h2 class="sr-only">Projects</h2>
           <ul class="cert-list max-w-[880px] mx-auto" data-swapped="projects"></ul>
         </section>
-
+        <!-- Certificates -->
         <section id="panel-certificates" role="tabpanel" aria-labelledby="tab-certificates" data-panel="certificates" hidden>
           <h2 class="sr-only">Certificates</h2>
           <div class="projects-grid max-w-[880px] mx-auto" data-swapped="certificates"></div>
         </section>
-
+        <!-- Contact -->
         <section id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" data-panel="contact" hidden>
           <h2 class="sr-only">Contact</h2>
           <form class="contact-form" novalidate>
@@ -118,7 +123,7 @@
       </div>
     </main>
   </div>
-  </footer>
-  <script src="assets/app.js" defer></script>
+  <footer class="sr-only">&copy; <span id="year"></span> Your Name</footer>
+  <script type="module" src="JavaScript/main.js" defer></script>
 </body>
 </html>

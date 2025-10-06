@@ -1,0 +1,71 @@
+/* Certificates Section Styles
+	---------------------------------------------- */
+
+/* Certificates grid (re-using original .projects-grid logic swapped) */
+#panel-certificates .projects-grid { display:grid; gap:1.5rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
+
+/* Certificate list structure */
+#panel-certificates .cert-list { display:grid; gap:.875rem; padding:0; margin:0; list-style:none; }
+
+/* Certificate item card */
+#panel-certificates .cert-item { display:flex; flex-direction:column; gap:.25rem; padding:1rem 18px 18px; background:#27282b; border:1px solid #2f3033; border-radius:8px; min-height:110px; }
+#panel-certificates .cert-item h3 { margin:0; font-size:.95rem; font-weight:600; }
+#panel-certificates .cert-item span { font-size:.7rem; text-transform:uppercase; letter-spacing:.5px; color:rgb(181 181 187 / 1); }
+
+#panel-certificates .cert-head { display:flex; width:100%; align-items:flex-start; justify-content:space-between; gap:1rem; }
+#panel-certificates .cert-meta { display:flex; flex-direction:column; gap:.25rem; }
+
+/* Links within certificate items */
+#panel-certificates .cert-links { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.5rem; }
+#panel-certificates .cert-links a { display:inline-flex; align-items:center; gap:.25rem; font-size:.72rem; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:.375rem .625rem; border-radius:4px; text-decoration:none; transition:.15s; }
+#panel-certificates .cert-links a:hover { border-color:rgb(245 200 81 / 1); background:rgb(245 200 81 / 1); color:#e8e8ea; }
+
+/* Hover affordance for swapped project-card style if reused */
+#panel-certificates .project-card:hover, #panel-certificates .cert-item:hover { outline:1px solid rgba(var(--color-accent-glow)/.25); }
+
+/* .project-card is used by certificates.js to render larger visual cards */
+#panel-certificates .project-card {
+	position: relative;
+	display:flex;
+	flex-direction:column;
+	gap:.875rem;
+	border-radius:8px;
+	border:1px solid #2f3033;
+	background:#27282b;
+	padding:22px;
+	transition:opacity .15s, transform .15s, box-shadow .15s;
+	cursor: pointer;
+}
+
+#panel-certificates .project-card h3 { margin:0; font-size:1.05rem; font-weight:600; }
+#panel-certificates .project-card p { margin:0; font-size:.8rem; line-height:1.375; color:rgb(181 181 187 / 1); }
+
+#panel-certificates .project-card .project-links { margin-top:auto; display:flex; gap:.75rem; }
+#panel-certificates .project-card .icon-btn { display:flex; align-items:center; justify-content:center; width:2rem; height:2rem; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:0; border-radius:4px; }
+
+/* Position verify button (eye) in the top-right of the card and make it small like Projects */
+#panel-certificates .project-card .verify-btn { position:absolute; top:0.75rem; right:0.75rem; width:1.5rem; height:1.5rem; display:flex; align-items:center; justify-content:center; }
+#panel-certificates .project-card .verify-btn svg { width:13px; height:13px; display:block; }
+
+/* Ensure layout: move title and meta to leave room for absolute verify button */
+#panel-certificates .project-card > h3 { padding-right:2.75rem; }
+#panel-certificates .project-card > p { padding-right:2.75rem; }
+
+/* subtle overlay like service-card */
+#panel-certificates .project-card::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity .15s ease, transform .15s ease;
+	background: linear-gradient(120deg, rgba(var(--color-accent-glow)/0) 0%, rgba(var(--color-accent-glow)/.06) 60%, rgba(var(--color-accent-glow)/0) 100%);
+}
+
+#panel-certificates .project-card:hover::after {
+	opacity: 1;
+}
+
+#panel-certificates .project-card:focus {
+	outline: 2px solid rgba(245,200,81,0.15);
+}
+
