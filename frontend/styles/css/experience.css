@@ -1,0 +1,6 @@
+/* Experience Section Styles */
+
+#panel-experience { min-height: 560px; }
+#panel-experience .experience-item { background:#27282b; border:1px solid #2f3033; border-radius:8px; padding:1rem 1rem 1.25rem; margin-bottom:1rem; color:rgb(181 181 187 / 1); }
+#panel-experience .experience-item .experience-role { margin:0 0 .25rem 0; font-size:1rem; font-weight:600; color:#fff; }
+#panel-experience .experience-item .experience-meta { margin:0 0 .5rem 0; font-size:.82rem; color:rgb(157 157 163 / 1); }

@@ -46,7 +46,7 @@ function onKeyDownTab(e){
 
 function initFromHash(){
   const hash = window.location.hash.replace('#','');
-  const valid = ['about','projects','certificates','contact'];
+  const valid = ['about','experience','projects','certificates','contact'];
   if (valid.includes(hash) && hash !== 'about') activateTab(hash);
 }
 

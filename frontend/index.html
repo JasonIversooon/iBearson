@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="Styles/css/projects.css" />
   <link rel="stylesheet" href="Styles/css/certificates.css" />
   <link rel="stylesheet" href="Styles/css/contact.css" />
+  <link rel="stylesheet" href="Styles/css/experience.css" />
 </head>
 <body>
   <a href="#panel-about" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-accent text-[#222] px-4 py-2 rounded-sm">Skip to content</a>
@@ -73,9 +74,10 @@
           <h2 id="active-panel-heading" class="panel-title">About Me</h2>
           <div class="accent-bar"></div>
         </div>
-        <nav class="primary-nav primary-nav--horizontal inline" aria-label="Main">
+          <nav class="primary-nav primary-nav--horizontal inline" aria-label="Main">
           <ul role="tablist">
             <li><button role="tab" aria-selected="true" aria-controls="panel-about" id="tab-about" data-tab="about">About</button></li>
+            <li><button role="tab" aria-selected="false" aria-controls="panel-experience" id="tab-experience" data-tab="experience">Experience</button></li>
             <li><button role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects" data-tab="projects">Projects</button></li>
             <li><button role="tab" aria-selected="false" aria-controls="panel-certificates" id="tab-certificates" data-tab="certificates">Certificates</button></li>
             <li><button role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact" data-tab="contact">Contact</button></li>
@@ -94,6 +96,22 @@
         <section id="panel-projects" role="tabpanel" aria-labelledby="tab-projects" data-panel="projects" hidden>
           <h2 class="sr-only">Projects</h2>
           <ul class="cert-list max-w-[880px] mx-auto" data-swapped="projects"></ul>
+        </section>
+        <!-- Experience -->
+        <section id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" data-panel="experience" hidden>
+          <h2 class="sr-only">Experience</h2>
+          <div class="max-w-[880px] mx-auto">
+            <article class="experience-item">
+              <h3 class="experience-role">Senior Web Developer — Acme Corp</h3>
+              <p class="experience-meta">Jan 2020 — Present • Remote</p>
+              <p>Worked on building accessible, high-performance web applications, implementing CI pipelines, and integrating REST/GraphQL APIs.</p>
+            </article>
+            <article class="experience-item">
+              <h3 class="experience-role">Frontend Engineer — Example Inc</h3>
+              <p class="experience-meta">Jun 2017 — Dec 2019 • New York, NY</p>
+              <p>Built component libraries, designed accessible UI patterns, and led frontend performance initiatives.</p>
+            </article>
+          </div>
         </section>
         <!-- Certificates -->
         <section id="panel-certificates" role="tabpanel" aria-labelledby="tab-certificates" data-panel="certificates" hidden>
