@@ -20,6 +20,74 @@
 	display: block;
 }
 
+/* Two-column about layout */
+#panel-about .about-two-col { display:flex; gap:1.5rem; max-width:880px; margin:1.5rem auto 0; align-items:stretch; }
+#panel-about .about-left { flex:0 0 50%; }
+#panel-about .about-right-wrap { flex:0 0 50%; }
+
+/* Generic card base to match other panels */
+#panel-about .card { background:#27282b; border:1px solid #2f3033; border-radius:8px; padding:18px; }
+
+/* Education timeline styles */
+#panel-about .about-left .card { box-sizing:border-box; height:380px; display:flex; flex-direction:column; align-items:stretch; padding:18px; }
+#panel-about .edu-timeline { position:relative; padding-left:32px; height:100%; display:flex; flex-direction:column; gap:14px; padding-top:6px; padding-bottom:6px; }
+#panel-about .edu-timeline::before { content:""; position:absolute; left:18px; top:12px; bottom:12px; width:4px; background:#f5c851; border-radius:2px; z-index:0; }
+#panel-about .edu-item { display:flex; gap:.75rem; padding:8px 0; align-items:flex-start; position:relative; z-index:1; }
+#panel-about .edu-dot { position:relative; margin-right:12px; margin-left:-6px; width:12px; height:12px; border-radius:50%; background:#f5c851; border:2px solid rgba(0,0,0,0.25); box-shadow:0 0 0 3px rgba(37,37,38,0.25) inset; flex:0 0 auto; transform:translateY(0); }
+#panel-about .edu-content strong { display:block; margin-bottom:6px; font-size:1rem; }
+#panel-about .edu-meta { font-size:.85rem; color:rgb(181 181 187 / 1); }
+#panel-about .edu-year { font-size:.75rem; color:rgb(140 140 145 / 1); margin-top:4px; }
+
+/* School heading placed above the timeline */
+/* School heading placed at the top and centered */
+#panel-about .edu-school { font-weight:600; margin:0 0 12px 0; text-align:center; color:#e8e8ea; font-size:1rem; }
+
+/* Right outer card: darker background + larger padding so inner cards match Projects look */
+#panel-about .about-right.card { background:#232425; border-color:#2b2c2d; height: 380px;; overflow:auto; box-sizing:border-box; padding:22px; }
+#panel-about .about-right { /* fallback in case .card class missing */
+  height:420px; overflow:auto; box-sizing:border-box; padding:14px 14px 12px 14px;
+}
+#panel-about .about-cert-list { display:grid; gap:1rem; padding:0; margin:0; list-style:none; }
+/* Make inner items match Projects' project-card appearance */
+#panel-about .about-cert-list .cert-item {
+	position:relative;
+	display:flex;
+	flex-direction:column;
+	gap:.875rem;
+	padding:22px;
+	background:#27282b;
+	border:1px solid #2f3033;
+	border-radius:8px;
+	min-height:110px;
+	transition:opacity .15s, transform .15s, box-shadow .15s;
+}
+#panel-about .about-cert-list .cert-item h3 { margin:0; font-size:.95rem; font-weight:600; }
+#panel-about .about-cert-list .cert-item span { font-size:.8rem; color:rgb(181 181 187 / 1); }
+
+/* subtle overlay and hover like project cards */
+#panel-about .about-cert-list .cert-item::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	transition: opacity .15s ease, transform .15s ease;
+	background: linear-gradient(120deg, rgba(var(--color-accent-glow)/0) 0%, rgba(var(--color-accent-glow)/.06) 60%, rgba(var(--color-accent-glow)/0) 100%);
+}
+#panel-about .about-cert-list .cert-item:hover::after {
+	opacity: 1;
+}
+#panel-about .about-cert-list .cert-item:focus {
+	outline: 2px solid rgba(245,200,81,0.15);
+}
+
+/* Scrollbar styling (subtle) */
+/* Scrollbar styling (subtle) */
+#panel-about .about-right { scrollbar-width: thin; scrollbar-color: rgba(47,48,51,0.45) transparent; }
+#panel-about .about-right::-webkit-scrollbar { width:6px; }
+#panel-about .about-right::-webkit-scrollbar-track { background:transparent; }
+#panel-about .about-right::-webkit-scrollbar-thumb { background:rgba(47,48,51,0.45); border-radius:6px; }
+
+
 /* Ensure the content area uses the same max width and scroll behavior as other panels */
 #panel-about .what-i-do { max-width:800px; margin:1.75rem auto 0; display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
 
@@ -34,7 +102,7 @@
 
 /* Uniform panel sizing - ABOUT (duplicate, file-scoped variables so each CSS can be edited independently) */
 :root {
-	--about-panel-max-width: 600px;
+	--about-panel-max-width: 700px;
 	--about-panel-min-height: 560px;
 	--about-card-min-height: 110px;
 }
