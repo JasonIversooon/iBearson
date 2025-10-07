@@ -28,6 +28,9 @@
   .primary-nav--horizontal ul { @apply flex-row gap-1.5 bg-surface p-1.5 rounded-lg border border-border shadow-elev; }
   .primary-nav--horizontal button { @apply w-auto text-center text-[0.9rem] px-4 py-2.5; }
   .primary-nav--horizontal button[aria-selected="true"] { @apply bg-[rgba(var(--color-accent-glow)/0.10)] text-accent shadow-inner; box-shadow:0 0 0 1px rgba(var(--color-accent-glow)/.35) inset; }
+  /* Hover lightening effect for horizontal nav (matched to service-card subtle glow) */
+  .primary-nav--horizontal button:hover:not([aria-selected="true"]) { @apply brightness-105; background-color:rgba(255,255,255,0.05); box-shadow:0 0 0 1px rgba(47,48,51,1),0 2px 6px -2px rgba(0,0,0,.45); }
+  .primary-nav--horizontal button[aria-selected="true"]:hover { background-color:rgba(var(--color-accent-glow)/0.13); }
 
   .panel-bar { @apply max-w-[920px] mx-auto mb-8 flex items-center justify-between gap-7; }
   .panel-bar__heading { @apply flex items-center gap-5; }

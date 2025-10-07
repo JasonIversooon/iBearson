@@ -3,8 +3,8 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-  "dev": "tailwindcss -i ./frontend/Styles/tailwind/tailwind.css -o ./frontend/Styles/css/style.css --watch",
-  "build": "tailwindcss -i ./frontend/Styles/tailwind/tailwind.css -o ./frontend/Styles/css/style.css --minify"
+  "dev": "tailwindcss -i ./frontend/styles/tailwind/tailwind.css -o ./frontend/styles/css/style.css --watch",
+  "build": "tailwindcss -i ./frontend/styles/tailwind/tailwind.css -o ./frontend/styles/css/style.css --minify"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
