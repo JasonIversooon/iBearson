@@ -29,21 +29,55 @@
 #panel-about .card { background:#27282b; border:1px solid #2f3033; border-radius:8px; padding:18px; }
 
 /* Education timeline styles */
-#panel-about .about-left .card { box-sizing:border-box; height:380px; display:flex; flex-direction:column; align-items:stretch; padding:18px; }
-#panel-about .edu-timeline { position:relative; padding-left:32px; height:100%; display:flex; flex-direction:column; gap:14px; padding-top:6px; padding-bottom:6px; }
-#panel-about .edu-timeline::before { content:""; position:absolute; left:18px; top:12px; bottom:12px; width:4px; background:#f5c851; border-radius:2px; z-index:0; }
-#panel-about .edu-item { display:flex; gap:.75rem; padding:8px 0; align-items:flex-start; position:relative; z-index:1; }
-#panel-about .edu-dot { position:relative; margin-right:12px; margin-left:-6px; width:12px; height:12px; border-radius:50%; background:#f5c851; border:2px solid rgba(0,0,0,0.25); box-shadow:0 0 0 3px rgba(37,37,38,0.25) inset; flex:0 0 auto; transform:translateY(0); }
-#panel-about .edu-content strong { display:block; margin-bottom:6px; font-size:1rem; }
-#panel-about .edu-meta { font-size:.85rem; color:rgb(181 181 187 / 1); }
-#panel-about .edu-year { font-size:.75rem; color:rgb(140 140 145 / 1); margin-top:4px; }
+/* refined education timeline (Variant A) */
+:root {
+	--edu-accent: #f5c851;
+	--edu-accent-weak: rgba(245,200,81,0.65);
+	--panel-card-bg: #27282b;
+	--panel-card-border: #2f3033;
+	--muted-text: rgb(181 181 187 / 1);
+}
+
+#panel-about .about-left .card { box-sizing:border-box; height:380px; display:flex; flex-direction:column; align-items:stretch; padding:18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+#panel-about .edu-header { display:flex; align-items:center; justify-content:center; padding-bottom:8px; }
+#panel-about .edu-school { font-weight:600; margin:0; text-align:center; color:#e8e8ea; font-size:1.02rem; }
+
+#panel-about .edu-timeline { padding-left:0; height:100%; display:flex; flex-direction:column; gap:16px; padding-top:6px; padding-bottom:6px; }
+
+#panel-about .edu-item { display:block; padding:6px 8px; position:relative; z-index:1; }
+
+#panel-about .edu-content { color:var(--muted-text); min-width:0; background: transparent; padding:6px 4px; border-radius:8px; }
+
+#panel-about .edu-role { margin:0 0 6px 0; color:#ffffff; font-size:0.98rem; font-weight:600; }
+
+/* interactive style applied only to the two education entries we want clickable/hoverable */
+.edu-interactive { transition: opacity .12s ease, background .12s ease; }
+
+/* Left-side education items reuse the same .about-cert-list .cert-item rules */
+
+/* Make left column education cards slightly smaller than right-side cert cards */
+#panel-about .about-left .about-cert-list .cert-item {
+	padding:14px; /* smaller padding */
+	min-height:80px; /* reduced min height */
+}
+#panel-about .about-left .about-cert-list .cert-item h3 { font-size:.9rem; }
+#panel-about .about-left .about-cert-list .cert-item span { font-size:.78rem; }
+#panel-about .about-left .about-cert-list .cert-item .cert-links time { font-size:0.78rem; color: rgba(255,255,255,0.52); }
+
+/* ensure spacing for non-interactive items (if any) */
+.edu-item:not(.edu-interactive) .edu-content { opacity:0.98; }
+#panel-about .edu-meta { margin:6px 0 0; color:#cfd4d8; font-size:.85rem; }
+#panel-about .edu-year { display:block; margin-top:6px; color: rgba(255,255,255,0.36); font-size:0.8rem; }
+
+/* focus outline for keyboard users */
+#panel-about .edu-item:focus { outline: 3px solid rgba(245,200,81,0.14); outline-offset: 4px; }
 
 /* School heading placed above the timeline */
 /* School heading placed at the top and centered */
 #panel-about .edu-school { font-weight:600; margin:0 0 12px 0; text-align:center; color:#e8e8ea; font-size:1rem; }
 
 /* Right outer card: darker background + larger padding so inner cards match Projects look */
-#panel-about .about-right.card { background:#232425; border-color:#2b2c2d; height: 380px;; overflow:auto; box-sizing:border-box; padding:22px; }
+#panel-about .about-right.card { background:#232425; border-color:#2b2c2d; height: 380px; overflow:auto; box-sizing:border-box; padding:22px; }
 #panel-about .about-right { /* fallback in case .card class missing */
   height:420px; overflow:auto; box-sizing:border-box; padding:14px 14px 12px 14px;
 }
@@ -80,6 +114,18 @@
 	outline: 2px solid rgba(245,200,81,0.15);
 }
 
+/* Make sure left and right columns keep equal height on smaller screens when stacked */
+@media (max-width:880px) {
+	#panel-about .about-two-col { flex-direction:column; }
+	#panel-about .about-left, #panel-about .about-right-wrap { flex: 1 1 auto; }
+	#panel-about .about-left .card, #panel-about .about-right.card { height: auto; min-height: 280px; }
+}
+
+/* Reduce visual motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	#panel-about .edu-item { transition: none; }
+}
+
 /* Scrollbar styling (subtle) */
 /* Scrollbar styling (subtle) */
 #panel-about .about-right { scrollbar-width: thin; scrollbar-color: rgba(47,48,51,0.45) transparent; }
@@ -110,4 +156,9 @@
 #panel-about .what-i-do { max-width: var(--about-panel-max-width); margin: 1.75rem auto 0; }
 #panel-about { min-height: var(--about-panel-min-height); }
 #panel-about .service-card { min-height: var(--about-card-min-height); align-self: stretch; }
+
+/* Keep About base card; only sync heading row behavior */
+.accent-bar { display:none !important; }
+.panel-bar { align-items:center; min-height:72px; }
+.panel-title { white-space:nowrap; }
 

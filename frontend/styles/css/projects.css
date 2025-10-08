@@ -55,3 +55,8 @@
 #panel-projects { min-height: var(--proj-panel-min-height); }
 #panel-projects .project-card, #panel-projects .cert-item { min-height: var(--proj-card-min-height); }
 
+/* Navbar / heading stabilization (defensive duplication) */
+.accent-bar { display:none !important; }
+.panel-bar { align-items:center; min-height:72px; }
+.panel-title { white-space:nowrap; }
+

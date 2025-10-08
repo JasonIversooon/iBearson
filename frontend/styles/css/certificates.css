@@ -1,13 +1,12 @@
 /* Certificates Section Styles
-	---------------------------------------------- */
+---------------------------------------------- */
 
-/* Certificates grid (re-using original .projects-grid logic swapped) */
-#panel-certificates .projects-grid { display:grid; gap:1.5rem; grid-template-columns:repeat(2,minmax(0,1fr)); }
+/* Keep only card/grid styles; remove extra data-surface panel duplication */
 
-/* Certificate list structure */
+#panel-certificates .projects-grid { display:grid; gap:1.5rem; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:880px; margin:0 auto; }
+
 #panel-certificates .cert-list { display:grid; gap:.875rem; padding:0; margin:0; list-style:none; }
 
-/* Certificate item card */
 #panel-certificates .cert-item { display:flex; flex-direction:column; gap:.25rem; padding:1rem 18px 18px; background:#27282b; border:1px solid #2f3033; border-radius:8px; min-height:110px; }
 #panel-certificates .cert-item h3 { margin:0; font-size:.95rem; font-weight:600; }
 #panel-certificates .cert-item span { font-size:.7rem; text-transform:uppercase; letter-spacing:.5px; color:rgb(181 181 187 / 1); }
@@ -79,4 +78,81 @@
 #panel-certificates .projects-grid, #panel-certificates .cert-list { max-width: var(--cert-panel-max-width); margin: 0 auto; }
 #panel-certificates { min-height: var(--cert-panel-min-height); }
 #panel-certificates .cert-item, #panel-certificates .project-card { min-height: var(--cert-card-min-height); }
+
+/* === Panel width unification (match Contact panel) === */
+/* Override earlier max-width rule so grid fills full section width */
+#panel-certificates .projects-grid {
+  max-width: none !important;
+  width: 100%;
+  margin: 0; /* align with contact form panel edges */
+  box-sizing: border-box;
+  /* Add side gap similar to form’s internal breathing room if desired: */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Maintain internal card spacing uniformly */
+#panel-certificates .projects-grid > .project-card {
+  /* No change needed; included for clarity */
+}
+
+/* If you later swap to list (.cert-list), ensure it also stretches */
+#panel-certificates .cert-list {
+  max-width: none !important;
+  width: 100%;
+  margin: 0;
+}
+
+/* Base panel surface (match Contact panel).
+   Wrap certificates grid/list in a div data-surface */
+#panel-certificates [data-surface] {
+  width:100%;
+  box-sizing:border-box;
+  background:#1f2022;
+  border:1px solid #2a2b2e;
+  border-radius:18px;
+  padding:32px 44px 40px;
+  min-height:560px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Inside surface: allow grid/list to fill width */
+#panel-certificates [data-surface] .projects-grid,
+#panel-certificates [data-surface] .cert-list {
+  width:100%;
+  max-width:100%;
+  margin:0;
+}
+
+/* Remove earlier forced full-width overrides now handled by surface wrapper */
+#panel-certificates .projects-grid,
+#panel-certificates .cert-list {
+  /* keep layout definitions above; width now inherits from surface */
+}
+
+/* Base panel surface wrapper (added via data-surface) */
+#panel-certificates > [data-surface] {
+  background:#1f2022;
+  border:1px solid #2a2b2e;
+  border-radius:18px;
+  padding:32px 44px 40px;
+  min-height:560px;
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+  width:100%; /* or 70% / custom as above for consistency */
+}
+
+/* Ensure grid fills wrapper width now */
+#panel-certificates > [data-surface] .projects-grid {
+  margin:0;
+  max-width:none;
+  width:100%;
+}
+
+/* Ensure certificates also benefit from navbar stabilization without editing generated style.css */
+.accent-bar { display:none !important; }          /* (duplicates rule if experience.css loads after – safe) */
+.panel-bar { align-items:center; min-height:72px; }
+.panel-title { white-space:nowrap; }
 

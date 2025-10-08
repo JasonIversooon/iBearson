@@ -27,3 +27,8 @@
 #panel-contact .contact-form { max-width: var(--contact-panel-max-width); margin: 0 auto; }
 #panel-contact { min-height: var(--contact-panel-min-height); }
 #panel-contact .contact-card, #panel-contact .contact-form { min-height: var(--contact-card-min-height); }
+
+/* Navbar / heading stabilization */
+.accent-bar { display:none !important; }
+.panel-bar { align-items:center; min-height:72px; }
+.panel-title { white-space:nowrap; }

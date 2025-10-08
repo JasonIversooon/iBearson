@@ -13,25 +13,29 @@ export function populateServices() {
   // Right: four cards matching certificate/project card styles placed inside a scrollable column
   const educationHtml = `
     <div class="about-edu card">
-      <div class="edu-school">Technological Institute of the Philippines</div>
-      <div class="edu-timeline">
-        <div class="edu-item">
-          <div class="edu-dot" aria-hidden="true"></div>
-          <div class="edu-content">
-            <strong>College</strong>
-            <div class="edu-meta">Bachelor of Science — Computer Science</div>
-            <div class="edu-year">2020 — 2024</div>
+      <header class="edu-header">
+        <h3 class="edu-school">Technological Institute of the Philippines</h3>
+      </header>
+      <ul class="about-cert-list" aria-label="Education list">
+        <li class="cert-item edu-interactive" tabindex="0">
+          <div class="cert-head">
+            <div class="cert-meta">
+              <h3>College</h3>
+              <span>Bachelor of Science — Computer Science</span>
+            </div>
           </div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-dot" aria-hidden="true"></div>
-          <div class="edu-content">
-            <strong>Senior High School</strong>
-            <div class="edu-meta">STEM Track</div>
-            <div class="edu-year">2018 — 2020</div>
+          <div class="cert-links"><time>2020 — 2024</time></div>
+        </li>
+        <li class="cert-item edu-interactive" tabindex="0">
+          <div class="cert-head">
+            <div class="cert-meta">
+              <h3>Senior High School</h3>
+              <span>STEM Track</span>
+            </div>
           </div>
-        </div>
-      </div>
+          <div class="cert-links"><time>2018 — 2020</time></div>
+        </li>
+      </ul>
     </div>`;
 
   const rightCards = services.slice(0,4).map((s, idx) => `

@@ -1,6 +1,87 @@
 /* Experience Section Styles */
 
-#panel-experience { min-height: 560px; }
-#panel-experience .experience-item { background:#27282b; border:1px solid #2f3033; border-radius:8px; padding:1rem 1rem 1.25rem; margin-bottom:1rem; color:rgb(181 181 187 / 1); }
-#panel-experience .experience-item .experience-role { margin:0 0 .25rem 0; font-size:1rem; font-weight:600; color:#fff; }
-#panel-experience .experience-item .experience-meta { margin:0 0 .5rem 0; font-size:.82rem; color:rgb(157 157 163 / 1); }
+/* --- Global panel-bar adjustments & accent bar removal (loaded after style.css) --- */
+.accent-bar { display:none !important; }                       /* remove yellow line */
+.panel-bar { align-items:center; min-height:72px; }            /* stable row height */
+.panel-bar__heading { gap:1rem; }                              /* tighten gap now bar gone */
+.panel-title { white-space:nowrap; }                           /* keep single line to stop nav shift */
+/* If you ever want the bar back, comment the .accent-bar rule above */
+
+#panel-experience { min-height:560px; }
+
+/* Removed inner data-surface wrapper (was duplicating base panel) */
+
+/* Individual experience cards */
+#panel-experience .experience-item {
+  background:#27282b;
+  border:1px solid #2f3033;
+  border-radius:8px;
+  padding:1rem 1rem 1.25rem;
+  color:rgb(181 181 187 / 1);
+  max-width:880px;
+  margin:0 auto;
+}
+
+#panel-experience .experience-item + .experience-item { margin-top:.75rem; }
+
+#panel-experience .experience-item .experience-role {
+  margin:0 0 .25rem;
+  font-size:1rem;
+  font-weight:600;
+  color:#fff;
+}
+
+#panel-experience .experience-item .experience-meta {
+  margin:0 0 .5rem;
+  font-size:.82rem;
+  color:rgb(157 157 163 / 1);
+}
+
+/* Make experience items visually match certificates project-card hover/click affordance */
+#panel-experience .experience-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  border-radius: 8px;
+  border: 1px solid #2f3033;
+  background: #27282b;
+  padding: 22px;
+  transition: opacity .15s, transform .15s, box-shadow .15s;
+  cursor: pointer;
+  text-decoration: none; /* for anchors */
+  color: inherit;
+}
+
+#panel-experience .experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+#panel-experience .experience-card:focus {
+  outline: 2px solid rgba(245,200,81,0.15);
+}
+
+/* subtle overlay like certificates */
+#panel-experience .experience-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .15s ease, transform .15s ease;
+  background: linear-gradient(120deg, rgba(245,200,81,0) 0%, rgba(245,200,81,0.06) 60%, rgba(245,200,81,0) 100%);
+}
+
+#panel-experience .experience-card:hover::after { opacity: 1; }
+
+/* Make whole article spacing consistent when using anchors */
+#panel-experience a .experience-role { padding-right: 2.75rem; }
+#panel-experience a .experience-card p { padding-right: 2.75rem; }
+
+/* Space between stacked experience cards */
+#panel-experience .experience-card { margin: 0 auto 1rem; max-width: 880px; }
+
+/* Slightly larger gap for larger screens */
+@media (min-width: 880px) {
+  #panel-experience .experience-card { margin-bottom: 1.25rem; }
+}
