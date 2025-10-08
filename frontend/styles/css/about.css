@@ -162,3 +162,25 @@
 .panel-bar { align-items:center; min-height:72px; }
 .panel-title { white-space:nowrap; }
 
+/* Responsive tweaks */
+@media (max-width: 900px) {
+	#panel-about .about-two-col { gap:1rem; }
+	#panel-about .about-right.card, #panel-about .about-left .card { padding:18px; }
+}
+@media (max-width: 640px) {
+	#panel-about .what-i-do { grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:1rem; }
+	#panel-about .service-card { padding:1rem 1rem 1.125rem; }
+	#panel-about .about-two-col { margin-top:1rem; }
+	#panel-about .about-right.card, #panel-about .about-left .card { height:auto; max-height:none; }
+}
+@media (max-width:480px) {
+	#panel-about .what-i-do { grid-template-columns:1fr; }
+	#panel-about .service-card h3 { font-size:.92rem; }
+	#panel-about .service-card p { font-size:.76rem; }
+	#panel-about .about-cert-list .cert-item { padding:16px; }
+}
+@media (max-width:420px) {
+	#panel-about .about-cert-list { gap:.75rem; }
+	#panel-about .about-cert-list .cert-item h3 { font-size:.88rem; }
+}
+

@@ -2,7 +2,7 @@ import { populateServices } from './about.js';
 import { populateProjects } from './projects.js';
 import { populateCertificates } from './certificates.js';
 import { populateExperience } from './experience.js';
-import { initContactForm } from './contact.js';
+import { initContactForm, initContactItems } from './contact.js';
 import { initTabs } from './tabs.js';
 import { initFadeIns } from './fadeIn.js';
 
@@ -12,6 +12,7 @@ function init(){
   populateCertificates();
   populateExperience();
   initContactForm();
+  initContactItems();
   initTabs();
   initFadeIns();
   const y = document.getElementById('year');

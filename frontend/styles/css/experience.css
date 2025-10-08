@@ -85,3 +85,16 @@
 @media (min-width: 880px) {
   #panel-experience .experience-card { margin-bottom: 1.25rem; }
 }
+
+/* Responsive adjustments */
+@media (max-width:640px) {
+  #panel-experience .experience-item, #panel-experience .experience-card { max-width:100%; }
+  #panel-experience .experience-item { padding:.875rem .875rem 1rem; }
+  #panel-experience .experience-role { font-size:.95rem; }
+  #panel-experience .experience-meta { font-size:.75rem; }
+  #panel-experience { min-height:auto; }
+}
+@media (max-width:420px) {
+  #panel-experience .experience-item { padding:.75rem .75rem .9rem; }
+  #panel-experience .experience-item p { font-size:.78rem; }
+}

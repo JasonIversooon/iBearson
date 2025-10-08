@@ -79,6 +79,20 @@
 #panel-certificates { min-height: var(--cert-panel-min-height); }
 #panel-certificates .cert-item, #panel-certificates .project-card { min-height: var(--cert-card-min-height); }
 
+/* Responsive grid adjustments */
+@media (max-width: 900px) {
+  #panel-certificates .projects-grid { grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+}
+@media (max-width: 640px) {
+  #panel-certificates .projects-grid { grid-template-columns:1fr; gap:1rem; }
+  #panel-certificates .project-card, #panel-certificates .cert-item { padding:18px; }
+  #panel-certificates { min-height:auto; }
+}
+@media (max-width:420px) {
+  #panel-certificates .project-card h3 { font-size:.95rem; }
+  #panel-certificates .project-card p { font-size:.75rem; }
+}
+
 /* === Panel width unification (match Contact panel) === */
 /* Override earlier max-width rule so grid fills full section width */
 #panel-certificates .projects-grid {
@@ -92,9 +106,6 @@
 }
 
 /* Maintain internal card spacing uniformly */
-#panel-certificates .projects-grid > .project-card {
-  /* No change needed; included for clarity */
-}
 
 /* If you later swap to list (.cert-list), ensure it also stretches */
 #panel-certificates .cert-list {
@@ -126,10 +137,7 @@
 }
 
 /* Remove earlier forced full-width overrides now handled by surface wrapper */
-#panel-certificates .projects-grid,
-#panel-certificates .cert-list {
-  /* keep layout definitions above; width now inherits from surface */
-}
+/* (Removed empty rulesets previously used for clarity) */
 
 /* Base panel surface wrapper (added via data-surface) */
 #panel-certificates > [data-surface] {

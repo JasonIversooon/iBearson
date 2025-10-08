@@ -32,3 +32,49 @@
 .accent-bar { display:none !important; }
 .panel-bar { align-items:center; min-height:72px; }
 .panel-title { white-space:nowrap; }
+
+/* Responsive adjustments */
+@media (max-width:640px) {
+  #panel-contact .contact-form { max-width:100%; }
+  #panel-contact .contact-form input, #panel-contact .contact-form textarea { font-size:.85rem; }
+  #panel-contact .contact-form .btn-primary { font-size:.78rem; padding:.65rem 1rem; }
+}
+@media (max-width:420px) {
+  #panel-contact .contact-form { gap:1rem; }
+  #panel-contact .contact-form label { font-size:.7rem; }
+  #panel-contact .contact-form input, #panel-contact .contact-form textarea { padding:.65rem .75rem; }
+}
+
+/* Make sidebar/contact items visually match experience/project cards:
+   - lift on hover
+   - subtle accent overlay
+   - keyboard focus outline
+   Activation behavior is added via JS (adds .clickable and tabindex when a link exists) */
+.contact-item.clickable {
+  position: relative;
+  transition: opacity .15s, transform .15s, box-shadow .15s;
+  cursor: pointer;
+}
+.contact-item.clickable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.contact-item.clickable:focus {
+  outline: 2px solid rgba(245,200,81,0.15);
+  outline-offset: 2px;
+}
+.contact-item.clickable::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .15s ease, transform .15s ease;
+  background: linear-gradient(120deg, rgba(245,200,81,0) 0%, rgba(245,200,81,0.06) 60%, rgba(245,200,81,0) 100%);
+  border-radius: 12px; /* match .contact-item rounding */
+  pointer-events: none;
+}
+.contact-item.clickable:hover::after { opacity: 1; }
+
+/* Keep inner link styles but inherit color so whole card feels clickable */
+.contact-item.clickable .detail a { color: inherit; text-decoration: none; }
+
