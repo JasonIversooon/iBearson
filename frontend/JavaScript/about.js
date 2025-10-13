@@ -1,10 +1,10 @@
 // Populate About/services cards
 export function populateServices() {
   const services = [
-    { title: 'Web Design', body: 'Modern, accessible UI crafted with a design system mindset.' },
-    { title: 'Full-Stack Dev', body: 'End-to-end feature development with performance focus.' },
-    { title: 'APIs & Integrations', body: 'Robust REST/GraphQL APIs and third‑party integrations.' },
-    { title: 'Testing & QA', body: 'Automated tests and CI pipelines to ensure reliability.' }
+    { title: 'Languages', body: 'Python, SQL, JavaScript' },
+    { title: 'Tools', body: 'Git, GitHub, HuggingFace, Ubuntu, Jupyter Notebook' },
+    { title: 'Development', body: 'Flask, Django, React, Rest/Fast API' },
+    { title: 'Database', body: 'MongoDB, SQLite, VectorDB, Supabase, Redis' }
   ];
   const wrap = document.querySelector('.what-i-do');
   if (!wrap) return;
@@ -20,8 +20,9 @@ export function populateServices() {
         <li class="cert-item edu-interactive" tabindex="0">
           <div class="cert-head">
             <div class="cert-meta">
-              <h3>College</h3>
-              <span>Bachelor of Science — Computer Science</span>
+              <h3>Bachelor's Degree</h3>
+              <span>Bachelor of Science in Computer Science</span>
+              <span><i>Track: Intelligent Systems</i> </span>
             </div>
           </div>
           <div class="cert-links"><time>2020 — 2024</time></div>
@@ -30,7 +31,7 @@ export function populateServices() {
           <div class="cert-head">
             <div class="cert-meta">
               <h3>Senior High School</h3>
-              <span>STEM Track</span>
+              <span><i>STEM Track</i></span>
             </div>
           </div>
           <div class="cert-links"><time>2018 — 2020</time></div>

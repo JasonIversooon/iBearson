@@ -31,14 +31,39 @@
   color:#fff;
 }
 
+
 #panel-experience .experience-item .experience-meta {
   margin:0 0 .5rem;
   font-size:.82rem;
   color:rgb(157 157 163 / 1);
 }
 
+/* Make experience description smaller and add bullets */
+#panel-experience .experience-item .lead {
+  font-size: 0.93rem;
+  margin: 0 0 0 0.5rem;
+  padding-left: 1.1em;
+}
+#panel-experience .experience-item .lead li {
+  position: relative;
+  margin-bottom: 0.18em;
+  padding-left: 1.1em;
+  list-style: none;
+}
+#panel-experience .experience-item .lead li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #f5c851;
+  font-size: 1em;
+  line-height: 1;
+  top: 0.1em;
+}
+
 /* Make experience items visually match certificates project-card hover/click affordance */
-#panel-experience .experience-card {
+
+/* Effects for .experience-item (now used for experience cards) */
+#panel-experience .experience-item {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -49,47 +74,40 @@
   padding: 22px;
   transition: opacity .15s, transform .15s, box-shadow .15s;
   cursor: pointer;
-  text-decoration: none; /* for anchors */
   color: inherit;
+  margin: 0 auto 1rem;
+  max-width: 880px;
 }
 
-#panel-experience .experience-card:hover {
+#panel-experience .experience-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.35);
 }
 
-#panel-experience .experience-card:focus {
+#panel-experience .experience-item:focus {
   outline: 2px solid rgba(245,200,81,0.15);
 }
 
-/* subtle overlay like certificates */
-#panel-experience .experience-card::after{
+#panel-experience .experience-item::after{
   content: "";
   position: absolute;
   inset: 0;
   opacity: 0;
   transition: opacity .15s ease, transform .15s ease;
   background: linear-gradient(120deg, rgba(245,200,81,0) 0%, rgba(245,200,81,0.06) 60%, rgba(245,200,81,0) 100%);
+  pointer-events: none;
 }
 
-#panel-experience .experience-card:hover::after { opacity: 1; }
-
-/* Make whole article spacing consistent when using anchors */
-#panel-experience a .experience-role { padding-right: 2.75rem; }
-#panel-experience a .experience-card p { padding-right: 2.75rem; }
-
-/* Space between stacked experience cards */
-#panel-experience .experience-card { margin: 0 auto 1rem; max-width: 880px; }
+#panel-experience .experience-item:hover::after { opacity: 1; }
 
 /* Slightly larger gap for larger screens */
 @media (min-width: 880px) {
-  #panel-experience .experience-card { margin-bottom: 1.25rem; }
+  #panel-experience .experience-item { margin-bottom: 1.25rem; }
 }
 
 /* Responsive adjustments */
 @media (max-width:640px) {
-  #panel-experience .experience-item, #panel-experience .experience-card { max-width:100%; }
-  #panel-experience .experience-item { padding:.875rem .875rem 1rem; }
+  #panel-experience .experience-item { max-width:100%; padding:.875rem .875rem 1rem; }
   #panel-experience .experience-role { font-size:.95rem; }
   #panel-experience .experience-meta { font-size:.75rem; }
   #panel-experience { min-height:auto; }

@@ -1,12 +1,12 @@
 // Populate Certificates grid
 export function populateCertificates() {
   const certs = [
-    { name: 'AWS Certified Cloud Practitioner', org: 'Amazon Web Services', year: 2024, links: { verify: '#'} },
-    { name: 'Google UX Design', org: 'Coursera', year: 2023, links: { verify: '#'} },
-    { name: 'Professional Scrum Master I', org: 'Scrum.org', year: 2023, links: { verify: '#'} },
-    { name: 'Frontend Developer Certification', org: 'FreeCodeCamp', year: 2022, links: { verify: '#'} },
-    { name: 'Frontend Developer Certification', org: 'FreeCodeCamp', year: 2022, links: { verify: '#'} },
-    { name: 'Frontend Developer Certification', org: 'FreeCodeCamp', year: 2022, links: { verify: '#'} }
+    { name: 'Data Literacy', org: 'DataCamp', year: 2025, links: { verify: 'https://www.datacamp.com/skill-verification/DL0038489478465'} },
+    { name: 'Python Data Associate', org: 'DataCamp', year: 2025, links: { verify: 'https://www.datacamp.com/certificate/PDA0014350360078'} },
+    { name: 'AI Ethics/Fundamentals', org: 'DataCamp', year: 2025, links: { verify: 'https://www.datacamp.com/skill-verification/AIF0029317326889'} },
+    { name: 'Artificial Intelligence Fundamentals', org: 'IBM SkillsBuilder', year: 2025, links: { verify: 'https://www.credly.com/badges/b7c12055-1033-4762-b908-5459f43d98d3'} },
+    { name: 'Python Intermediate', org: 'Sololearn', year: 2024, links: { verify: 'https://drive.google.com/file/d/14Enwb4jlnr58zesPetPFX2YyslVoSFrf/view'} },
+    { name: 'SQL Intermediate', org: 'Sololearn', year: 2024, links: { verify: 'https://drive.google.com/file/d/1-tZx0DsZEg46lXhkFRm9MURV1cjU3hL0/view?pli=1'} }
   ];
   const grid = document.querySelector('#panel-certificates .projects-grid');
   if (!grid) return;
