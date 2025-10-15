@@ -12,36 +12,49 @@
 #panel-projects .project-card h3 { margin:0; font-size:1.05rem; font-weight:600; }
 #panel-projects .project-card p { margin:0; font-size:.8rem; line-height:1.375; color:rgb(181 181 187 / 1); }
 
-/* Links row */
-#panel-projects .project-links { margin-top:auto; display:flex; gap:.75rem; }
-#panel-projects .project-links a { display:inline-flex; align-items:center; gap:.25rem; font-size:.72rem; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:.375rem .625rem; border-radius:4px; text-decoration:none; transition:.15s; }
+/* Links row - moved to top-right like cert-links so code/live icons align consistently */
+#panel-projects .project-card { position:relative; }
+#panel-projects .project-links { position:absolute; top:12px; right:12px; display:flex; flex-direction:row; gap:0.5rem; align-items:center; }
+#panel-projects .project-links a { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:0; border-radius:6px; text-decoration:none; transition:.15s; }
 #panel-projects .project-links a:hover { border-color:rgb(245 200 81 / 1); background:rgb(245 200 81 / 1); color:#e8e8ea; }
 
-/* Icon button variant */
-#panel-projects .icon-btn { display:flex; align-items:center; justify-content:center; width:2rem; height:2rem; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:0; border-radius:4px; transition:.15s; }
-#panel-projects .icon-btn svg { width:16px; height:16px; display:block; }
+/* Icon button variant - unify with cert-links buttons so all icons share size and behavior */
+#panel-projects .icon-btn { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:0; border-radius:6px; transition:.15s; }
+#panel-projects .icon-btn svg { width:14px; height:14px; display:block; }
 #panel-projects .icon-btn:hover { border-color:rgb(245 200 81 / 1); background:rgb(245 200 81 / 1); color:#e8e8ea; }
 
 /* Styles for cert-list items (projects.js outputs .cert-item) */
 #panel-projects .cert-list .cert-item {
+	position:relative;
 	display:flex;
 	flex-direction:column;
 	gap:.25rem;
-	border-radius:8px;
-	border:1px solid #2f3033;
-	background:#27282b;
-	padding:1rem 18px 18px;
-	min-height:110px;
+ 	border-radius:8px;
+ 	border:1px solid #2f3033;
+ 	background:#27282b;
+ 	padding:1rem 18px 18px;
+ 	min-height:110px;
 }
 
 #panel-projects .cert-list .cert-item h3 { margin:0; font-size:.95rem; font-weight:600; }
-#panel-projects .cert-list .cert-item span { font-size:.7rem; text-transform:uppercase; letter-spacing:.5px; color:rgb(181 181 187 / 1); }
+#panel-projects .cert-list .cert-item span { font-size:.7rem; letter-spacing:.5px; color:rgb(181 181 187 / 1); }
 
+/* place the links in a fixed top-right block inside each card so icons align */
 #panel-projects .cert-list .cert-head { display:flex; width:100%; align-items:flex-start; justify-content:space-between; gap:1rem; }
 #panel-projects .cert-list .cert-meta { display:flex; flex-direction:column; gap:.25rem; }
 
-#panel-projects .cert-list .cert-links { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.5rem; }
-#panel-projects .cert-list .cert-links a { display:inline-flex; align-items:center; gap:.25rem; font-size:.72rem; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:.375rem .625rem; border-radius:4px; text-decoration:none; transition:.15s; }
+#panel-projects .cert-list .cert-links {
+	position:absolute;
+	top:12px;
+	right:12px;
+	display:flex;
+	flex-direction:row;
+	gap:0.5rem;
+	align-items:center;
+}
+
+/* ensure icon buttons keep the compact square look */
+#panel-projects .cert-list .cert-links a { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border:1px solid #2f3033; background:#1f2022; color:rgb(181 181 187 / 1); padding:0; border-radius:6px; text-decoration:none; transition:.15s; }
 #panel-projects .cert-list .cert-links a:hover { border-color:rgb(245 200 81 / 1); background:rgb(245 200 81 / 1); color:#e8e8ea; }
 
 /* Uniform panel sizing - PROJECTS (file-scoped variables) */
