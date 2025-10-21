@@ -1,12 +1,12 @@
 // Populate Projects list
 export function populateProjects() {
   const projects = [
-    { title: 'Real-time Filipino Sign Language Recognition', desc: 'A machine learning architecture using deep learning techniques (Mask R-CNN) and recurrent neural network (LSTM)', links: { code: 'https://github.com/JasonIversooon/Real-time-FSL', live: 'https://github.com/JasonIversooon/Real-time-FSL'} },
+    { title: 'Real-time Filipino Sign Language Recognition', desc: 'A machine learning architecture using deep learning techniques (Mask R-CNN) and recurrent neural network (LSTM)', links: { code: 'https://github.com/JasonIversooon/Real-time-FSL', live: 'https://github.com/JasonIversooon/Real-time-FSL/releases'} },
     { title: 'Chatbot', desc: 'A PyTorch-based intent-classification chatbot trained by using an artificial neural network (FFNN)', links: { code: 'https://github.com/felixgonzales01/WebChatbot-NLP_FNN_PyTorch'} },
     { title: 'InsightAI', desc: 'Users can upload datasets and chat with an AI to explore, analyze, and visualize data in real time', links: { code: 'https://github.com/JasonIversooon/InsightAI', live: 'https://insightai-frontend-759t.onrender.com' } },
-    { title: 'AkademIQ Reviewer', desc: 'An AI-powered platform that turns documents into interactive study tools like flashcards, quizzes, and podcasts with text-to-speech', links: { code: 'https://github.com/JasonIversooon/AkademIQ-Reviewer', live: '#' } },
-    { title: 'Selectra', desc: 'For browser AI extension tool that provides summarization, explanation, sentiment analysis, and source finding via right-click', links: { code: 'https://github.com/JasonIversooon/Selectra', live: '#' } },
-    { title: 'Portfolio', desc: 'A personal portfolio website to showcase projects, skills, experience, and contact information — designed to reflect your unique style and professional brand', links: { code: 'https://github.com/JasonIversooon/iBearson', live: '#' } }
+    { title: 'AkademIQ Reviewer', desc: 'An AI-powered platform that turns documents into interactive study tools like flashcards, quizzes, and podcasts with text-to-speech', links: { code: 'https://github.com/JasonIversooon/AkademIQ-Reviewer', live: '#https://akademiq-reviewer-frontend.onrender.com/' } },
+    { title: 'Selectra', desc: 'For browser AI extension tool that provides summarization, explanation, sentiment analysis, and source finding via right-click', links: { code: 'https://github.com/JasonIversooon/Selectra'} },
+    { title: 'Portfolio', desc: 'A personal portfolio website to showcase projects, skills, experience, and contact information — designed to reflect your unique style and professional brand', links: { code: 'https://github.com/JasonIversooon/iBearson' } }
   ];
   const list = document.querySelector('#panel-projects .cert-list');
   if (!list) return;
@@ -17,8 +17,9 @@ export function populateProjects() {
     const hasLive = p.links && p.links.live && p.links.live !== '#';
   // Render description in normal case (not all caps)
   const desc = p.desc.charAt(0).toUpperCase() + p.desc.slice(1);
-  // Prepare live link (eye) so we can place it before the GitHub link
-  const liveLink = hasLive ? `<a class=\"icon-btn\" href=\"${p.links.live}\" aria-label=\"Live demo for ${p.title}\">${eyeIcon}</a>` : '';
-  return `\n    <li class=\"cert-item fade-in\" tabindex=\"0\">\n      <div class=\"cert-head\">\n        <div class=\"cert-meta\">\n          <h3>${p.title}</h3>\n          <span>${desc}</span>\n        </div>\n        <div class=\"cert-links\">\n          ${liveLink}\n          <a class=\"icon-btn\" href=\"${p.links.code}\" aria-label=\"GitHub repository for ${p.title}\">${gitHubIcon}</a>\n        </div>\n      </div>\n    </li>`;
+  // Open external links in a new tab and use noopener noreferrer for security
+  const liveLink = hasLive ? `<a class=\"icon-btn\" href=\"${p.links.live}\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Live demo for ${p.title}\">${eyeIcon}</a>` : '';
+  const codeLink = `<a class=\"icon-btn\" href=\"${p.links.code}\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository for ${p.title}\">${gitHubIcon}</a>`;
+  return `\n    <li class=\"cert-item fade-in\" tabindex=\"0\">\n      <div class=\"cert-head\">\n        <div class=\"cert-meta\">\n          <h3>${p.title}</h3>\n          <span>${desc}</span>\n        </div>\n        <div class=\"cert-links\">\n          ${liveLink}\n          ${codeLink}\n        </div>\n      </div>\n    </li>`;
   }).join('');
 }

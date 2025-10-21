@@ -19,12 +19,26 @@ export function initContactForm() {
       status.style.color = 'var(--color-accent)';
       return;
     }
-    status.textContent = 'Sending...';
-    setTimeout(() => {
-      status.textContent = 'Message sent! (Simulated)';
-      status.style.color = 'var(--color-text-soft)';
-      form.reset();
-    }, 900);
+    // Build a mailto: link so the user's email client is opened with the message prefilled.
+    const to = 'jasooon.iv@gmail.com';
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+
+    status.textContent = 'Opening email client...';
+    status.style.color = 'var(--color-text-soft)';
+    // Open the mail client in a new window/tab so the portfolio remains visible
+    try {
+      window.open(mailto);
+      setTimeout(() => {
+        status.textContent = 'Email client opened. Please send the message from your email app.';
+        status.style.color = 'var(--color-text-soft)';
+        form.reset();
+      }, 900);
+    } catch (err) {
+      status.textContent = 'Unable to open email client. Please email jasooon.iv@gmail.com directly.';
+      status.style.color = 'var(--color-accent)';
+    }
   });
 }
 
