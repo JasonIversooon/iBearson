@@ -34,15 +34,53 @@
 .panel-title { white-space:nowrap; }
 
 /* Responsive adjustments */
-@media (max-width:640px) {
-  #panel-contact .contact-form { max-width:100%; }
-  #panel-contact .contact-form input, #panel-contact .contact-form textarea { font-size:.85rem; }
-  #panel-contact .contact-form .btn-primary { font-size:.78rem; padding:.65rem 1rem; }
+@media (max-width:780px) {
+  #panel-contact {
+    min-height: auto;
+    height: auto !important;
+  }
 }
+
+@media (max-width:640px) {
+  #panel-contact .contact-form { 
+    max-width:100%; 
+  }
+  #panel-contact .contact-form input, #panel-contact .contact-form textarea { 
+    font-size:.85rem; 
+  }
+  #panel-contact .contact-form .btn-primary { 
+    font-size:.8rem; 
+    padding:.65rem 1rem; 
+  }
+}
+
+@media (max-width:520px) {
+  #panel-contact .contact-form { 
+    gap:1rem; 
+  }
+  #panel-contact .contact-form label { 
+    font-size:.75rem; 
+  }
+  #panel-contact .contact-form input, #panel-contact .contact-form textarea { 
+    font-size:.82rem;
+    padding:.65rem .75rem; 
+  }
+  #panel-contact .contact-form .btn-primary { 
+    font-size:.78rem; 
+  }
+}
+
 @media (max-width:420px) {
-  #panel-contact .contact-form { gap:1rem; }
-  #panel-contact .contact-form label { font-size:.7rem; }
-  #panel-contact .contact-form input, #panel-contact .contact-form textarea { padding:.65rem .75rem; }
+  #panel-contact .contact-form { 
+    gap:0.875rem; 
+  }
+  #panel-contact .contact-form label { 
+    font-size:.7rem; 
+  }
+  #panel-contact .contact-form input, #panel-contact .contact-form textarea { 
+    font-size:.8rem;
+    padding:.6rem .7rem; 
+  }
 }
 
 /* Make sidebar/contact items visually match experience/project cards:

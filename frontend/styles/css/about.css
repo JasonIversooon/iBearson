@@ -167,20 +167,63 @@
 	#panel-about .about-two-col { gap:1rem; }
 	#panel-about .about-right.card, #panel-about .about-left .card { padding:18px; }
 }
+
+@media (max-width: 780px) {
+	#panel-about {
+		min-height: auto;
+		height: auto !important;
+	}
+	#panel-about .about-two-col { 
+		flex-direction: column; 
+		margin-top: 1rem;
+	}
+	#panel-about .about-left, #panel-about .about-right-wrap { 
+		flex: 1 1 auto; 
+	}
+	#panel-about .about-left .card, #panel-about .about-right.card { 
+		height: auto; 
+		min-height: 200px;
+		max-height: none;
+	}
+}
+
 @media (max-width: 640px) {
-	#panel-about .what-i-do { grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:1rem; }
-	#panel-about .service-card { padding:1rem 1rem 1.125rem; }
-	#panel-about .about-two-col { margin-top:1rem; }
-	#panel-about .about-right.card, #panel-about .about-left .card { height:auto; max-height:none; }
+	#panel-about .what-i-do { 
+		grid-template-columns:1fr; 
+		gap:1rem; 
+	}
+	#panel-about .service-card { 
+		padding:1rem 1rem 1.125rem; 
+	}
 }
-@media (max-width:480px) {
-	#panel-about .what-i-do { grid-template-columns:1fr; }
-	#panel-about .service-card h3 { font-size:.92rem; }
-	#panel-about .service-card p { font-size:.76rem; }
-	#panel-about .about-cert-list .cert-item { padding:16px; }
+
+@media (max-width:520px) {
+	#panel-about .what-i-do { 
+		grid-template-columns:1fr; 
+	}
+	#panel-about .service-card h3 { 
+		font-size:.92rem; 
+	}
+	#panel-about .service-card p { 
+		font-size:.78rem; 
+	}
+	#panel-about .about-cert-list .cert-item { 
+		padding:14px; 
+	}
+	#panel-about .about-right.card, #panel-about .about-left .card { 
+		padding: 14px; 
+	}
 }
+
 @media (max-width:420px) {
-	#panel-about .about-cert-list { gap:.75rem; }
-	#panel-about .about-cert-list .cert-item h3 { font-size:.88rem; }
+	#panel-about .about-cert-list { 
+		gap:.75rem; 
+	}
+	#panel-about .about-cert-list .cert-item h3 { 
+		font-size:.88rem; 
+	}
+	#panel-about .service-card { 
+		padding: 0.875rem; 
+	}
 }
 
